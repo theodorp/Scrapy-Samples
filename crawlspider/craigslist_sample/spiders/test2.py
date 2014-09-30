@@ -6,9 +6,9 @@ from craigslist_sample.items import CraigslistSampleItem
 class MySpider(CrawlSpider):
     name = "craigs"
     allowed_domains = ["sfbay.craigslist.org"]
-    start_urls = ["http://sfbay.craigslist.org/search/npo?"]   
+    start_urls = ["http://sfbay.craigslist.org/search/npo"]   
 
-    rules = (Rule (SgmlLinkExtractor(allow=("/?s=\d00\&", ),restrict_xpaths=('//a[@class="button next"]',))
+    rules = (Rule (SgmlLinkExtractor(allow=("/?.?s=\d00\&", ),restrict_xpaths=('//a[@class="button next"]',))
     , callback="parse_items", follow= True),
     )
 
